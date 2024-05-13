@@ -1,0 +1,58 @@
+﻿@page "/threejs"
+@* @rendermode @(new InteractiveServerRenderMode(prerender:false))
+ *@
+<PageTitle>ThreeJS Bounce</PageTitle>
+
+<NavLink class="nav-link" href="/">
+Home
+</NavLink>
+<h1 class="text-center">Three JS</h1>
+
+@* <div class = "d-flex"> *@
+<div id="container" class="d-flex justify-content-center">
+
+</div>
+@* </div> *@
+<script>
+function loadScriptsSequentially(scriptUrls, index = 0) {
+    if (index >= scriptUrls.length) {
+        // All scripts have been loaded
+        console.log("All scripts loaded");
+        return;
+    }
+
+    var script = document.createElement('script');
+    script.src = scriptUrls[index];
+    script.type = 'module';
+    
+    // Load the next script after the current one has finished loading
+    script.onload = function() {
+        console.log(script.src + " loaded");
+        loadScriptsSequentially(scriptUrls, index + 1);
+    };
+
+    document.head.appendChild(script);
+}
+
+// List of script URLs to load sequentially
+var scriptUrls = [
+    "ThreejsPage/node_modules/three/build/three.js?v=" + Date.now(),
+    "ThreejsPage/colourhandler.js?v=" + Date.now(),
+    "ThreejsPage/main.js?v=" + Date.now()
+];
+
+// Start loading scripts sequentially
+loadScriptsSequentially(scriptUrls);
+</script>
+
+@* <script src = "ThreejsPage/node_modules/three/build/three.js" type = "module"></script>
+<script src = "ThreejsPage/colourhandler.js" type = "module"></script>
+<script src = "ThreejsPage/main.js" type = "module"></script> *@
+
+<p class="text-center">
+    This is my first project in Three.js.
+    The source code can be found <a href="https://github.com/Elnubbio/ThreeJSBounce">here</a>.
+</p>
+
+@code {
+}

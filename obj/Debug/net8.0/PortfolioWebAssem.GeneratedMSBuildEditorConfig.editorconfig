@@ -1,0 +1,79 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = PortfolioWebAssem
+build_property.RootNamespace = PortfolioWebAssem
+build_property.ProjectDir = D:\Documents\GitHub\Portfolio\PortfolioWebAssem\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Documents\GitHub\Portfolio\PortfolioWebAssem
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/Pages/HomePage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/Pages/JavaPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSmF2YVBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/Pages/MusicQuizPage/ArtistList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXVzaWNRdWl6UGFnZVxBcnRpc3RMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/Pages/MusicQuizPage/MusicQuizPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXVzaWNRdWl6UGFnZVxNdXNpY1F1aXpQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/Pages/MusicQuizPage/MusicQuizPage_MusicStart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXVzaWNRdWl6UGFnZVxNdXNpY1F1aXpQYWdlX011c2ljU3RhcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/Pages/MusicQuizPage/MusicQuizPage_Quiz.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXVzaWNRdWl6UGFnZVxNdXNpY1F1aXpQYWdlX1F1aXoucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/Pages/MusicQuizPage/MusicQuizPage_QuizOver.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXVzaWNRdWl6UGFnZVxNdXNpY1F1aXpQYWdlX1F1aXpPdmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/Pages/PokefetchPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9rZWZldGNoUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/Pages/ThreejsPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGhyZWVqc1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/Pages/ToDoListPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9Eb0xpc3RQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-5exh9j3bzx
+
+[D:/Documents/GitHub/Portfolio/PortfolioWebAssem/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-aldqarpgry

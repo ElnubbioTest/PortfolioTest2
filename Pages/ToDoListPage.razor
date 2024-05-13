@@ -1,0 +1,94 @@
+@page "/todolist"
+@* @rendermode InteractiveServer *@
+
+<PageTitle>To Do List</PageTitle>
+
+<NavLink class="nav-link" href="/">
+Home
+</NavLink>
+
+<h1 class = "text-center">To Do List (@(@toDos.Count(toDo => toDo.IsDone)) / @(toDos.Count()))</h1>
+@code {
+    //Create list of to do items
+    private List<ToDoItem> toDos = new List<ToDoItem>();
+    //Declare new to do item name
+    string newToDo = "";
+    string txtName = "todo_list1.txt";
+
+    //Add new to do item to the list
+    void addToDo(){
+        if (!string.IsNullOrWhiteSpace(newToDo)){
+            toDos.Add(new ToDoItem {Title = newToDo});
+            newToDo = string.Empty;
+        }
+    }
+    void removeToDo(ToDoItem toDoToRemove){
+        toDos.Remove(toDoToRemove);
+    }
+
+    void makeTxtFile(){
+        if (!File.Exists(txtName)){
+            using (StreamWriter writer = File.CreateText(txtName))
+        {}
+        }
+    }
+
+    void saveToTxt(){
+        using (StreamWriter myWriter = new StreamWriter(txtName)){
+            foreach(ToDoItem toDo in toDos){
+                myWriter.WriteLine(toDo.Title + " " + toDo.IsDone);
+                Console.WriteLine("Saved " + toDo.Title + " " + toDo.IsDone);
+            }
+        }
+    }
+
+    void loadFromTxt(){
+        string line = "";
+        //First reset To Do List
+        toDos.Clear();
+
+        using (StreamReader myReader = new StreamReader(txtName)){
+            while ((line = myReader.ReadLine()) != null){
+                string[] toDoArr = line.Split(' ');
+                string title = toDoArr[0];
+                bool isDone = bool.Parse(toDoArr[1]);
+                ToDoItem thisToDo = new ToDoItem(title, isDone);
+                toDos.Add(thisToDo);
+            }
+        }
+    }
+
+    protected override void OnInitialized(){
+        makeTxtFile();
+        loadFromTxt();
+    }
+}
+
+<div id="container1" class="text-center">
+
+ 
+
+<input @bind = "newToDo"/>
+<button @onclick="addToDo">Add To Do</button>
+<button @onclick="saveToTxt">Save To File</button>
+<button @onclick="loadFromTxt">Load From File</button>
+@* <Popup/> *@
+
+
+
+   </div>
+
+<br>
+
+   <div id="container1" class="d-flex justify-content-center">
+    <ul>
+    @foreach(ToDoItem toDoInTable in toDos){
+        <li>
+            @* @toDo.Title *@
+            <input type = "checkbox" @bind = "toDoInTable.IsDone"/>
+            <input @bind = "toDoInTable.Title"/>
+            <button @onclick="() => removeToDo(toDoInTable)">Remove</button>
+        </li>
+    }
+</ul>
+</div>

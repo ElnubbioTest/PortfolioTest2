@@ -1,0 +1,379 @@
+﻿@using PortfolioWebAssem.Models;
+@using PortfolioWebAssem.Models2;
+@using System.Text.RegularExpressions
+
+@inject HttpClient httpClient;
+
+
+<div class="container-fluid">
+	<div class="row">
+
+		@*---------------LEFT COLUMN---------------*@
+		<div class="col-4 d-flex flex-column align-items-center">
+
+			@*----------SEARCH BY----------*@
+			<div class="d-block text-center">
+
+				<span>Search for artist by:</span>
+				<div class="container" style="">
+					<div class="row vertical-align">
+						<div>
+							<input class="" type="radio" id="artist" checked="@(artistSearchSetting == "searchByArtist")" name="searchSetting" @onchange="@(() => {artistSearchSetting="searchByArtist"; artistSearchPromptString = "Search for an artist to begin fetching song snippets"; resetArtistListComponent();})">
+							<label class="mx-1" for="artist">Artist name</label>
+						</div>
+						<div>
+							<input type="radio" id="songTitle" checked="@(artistSearchSetting == "searchBySongTitle")" name="searchSetting" @onchange="@(() => {artistSearchSetting="searchBySongTitle"; artistSearchPromptString = "Search for a song title to begin fetching song snippets from that artist"; resetArtistListComponent(); startQuizButtonVisibility="hidden";})">
+							<label class="mx-1" for="songTitle">Song title</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			@*----------SLIDERS----------*@
+			<div class="d-block text-center my-3">
+
+				<div style="margin: 5px 0;">
+					<span>Number of songs to fetch: </span>
+					<div style="margin: 5px 0;" class="slidecontainer">
+						<input type="range" min="1" max="50" @bind="numberOfSongsToFetch" class="slider">
+						<span style="position:absolute; margin-left:10px">@numberOfSongsToFetch</span>
+					</div>
+
+					<span>Number of songs to play: </span>
+					<div style="margin: 5px 0;" class="slidecontainer">
+						@if (numberOfSongsToFetch < numberOfSongsSelected)
+							{
+								numberOfSongsSelected = numberOfSongsToFetch;
+							}
+						<input type="range" min="1" max="@numberOfSongsToFetch" @bind="numberOfSongsSelected" class="slider">
+						<span style="position:absolute; margin-left:10px">@numberOfSongsSelected</span>
+					</div>
+				</div>
+			</div>
+
+			<style>
+				.form-switch label{
+					display: flex;
+					width: auto;
+					white-space:normal;
+					align-items: center;
+				}
+				.form-switch {
+					padding: 0;
+				}
+
+				.form-check-input {
+					width: 0;
+				}
+			</style>
+			@*----------SETTINGS----------*@
+			<div class="d-block justify-content-center">
+
+				<div class="form-check form-switch">
+					<input class="form-check-input" style="margin-left: 25px; margin-right: 5px" type="checkbox" id="startOnly" @bind=@Settings["startOnly"] disabled="@(Settings["repeatsOnly"])">
+					<label class="form-check-label" for="startOnly">Starting lines only</label>
+				</div>
+				<div class="form-check form-switch">
+					<input class="form-check-input" style="margin-left: 25px; margin-right: 5px" type="checkbox" id="repeatsCheck" @bind=@Settings["repeatsOnly"] disabled="@(Settings["startOnly"])">
+					<label class="form-check-label" for="repeatsCheck">Most repeated lines only</label>
+				</div>
+				<div class="form-check form-switch">
+					<input class="form-check-input" style="margin-left: 25px; margin-right: 5px" type="checkbox" id="genericsCheck" @bind=@Settings["noGenericStarts"]>
+					<label class="form-check-label" for="genericsCheck">No generic starts (I, me, etc.)</label>
+				</div>
+				<div class="form-check form-switch">
+					<input class="form-check-input" style="margin-left: 25px; margin-right: 5px" type="checkbox" id="infiniteCheck" @bind=@Settings["infiniteMode"]>
+					<label class="form-check-label" for="infiniteCheck">Infinite mode</label>
+				</div>
+				<div class="form-check form-switch">
+					<input class="form-check-input" style="margin-left: 25px; margin-right: 5px" type="checkbox" id="???Check" @bind=@Settings["???"]>
+					<label class="form-check-label" for="???Check">???</label>
+				</div>
+				@*------------------------------------*@
+			</div>
+		</div>
+
+		@*---------------MIDDLE COLUMN---------------*@
+		<div class="col-4">
+			@* MAKE THIS GO INVISIBLE ONCE SEARCH BUTTON IS PRESSED *@
+			<div class="d-flex justify-content-center">
+				<span class="text-center" style="visibility: @artistSearchPromptVisibility ;">@artistSearchPromptString</span>
+			</div>
+			<br />
+
+			@* <div class="d-flex justify-content-center"> *@
+			<br />
+			<form class="d-flex justify-content-center" @onsubmit="searchButton">
+				<input @bind="userInputBandName"  />
+				<button @onclick="searchButton" class="btn btn-outline-light btn-sm">Search</button>
+				</form>
+			@* </div> *@
+
+			<br />
+			<div id="SearchResultsContainer" class="d-flex justify-content-center">
+				@* TODO - make a grid instead of list *@
+				<ul style="padding:0px;">
+					@if (artistSearchSetting == "searchByArtist")
+					{
+						@foreach (Artist artist in MyArtistList)
+						{
+							<li class="my-3">
+								<button @onclick="() => chooseButton(artist)" class="btn btn-outline-light btn-sm">Choose</button>
+								<div class ="d-inline" style="@styleForArtistList(artist.IsSelected)">
+									@artist.Name
+								</div>
+							</li>
+						}
+					}
+
+					@if (artistSearchSetting == "searchBySongTitle")
+					{
+						@foreach(Recording recording in MyRecordingList)
+						{
+							<li>
+								<button @onclick="() => chooseButton(recording)" class="btn btn-outline-light btn-sm">Choose</button>
+								<div class="d-inline" style="@styleForArtistList(recording.IsSelected)">
+									@recording.title by @recording.artistcredit.First().name
+								</div>
+							</li>
+						}
+					}
+				</ul>
+
+
+			</div>
+		</div>
+
+		@*---------------RIGHT COLUMN---------------*@
+		<div class="col-4" style="pointer-events: none; visibility: @rightDivVisibility">
+			@*pointer-events: none is to fix div overlapping the search button - a problem on phones*@
+			@*MAKE VISIBLE ONLY WHEN selectedArtist.Name.Size>0*@
+			<span class="d-flex justify-content-center" style="visibility: @fetchingLyricsHeadingVisibility">Fetching lyrics for @GeniusAPIClient.NewArtistName</span>
+			
+			<div id="songsFoundContainer" class="d-flex justify-content-center my-3">
+				@if(songList.Count>0)
+				{
+					<ul style="padding:0px;">
+						@foreach (SongDetails songInfo in songInfos)
+						{
+							<li>
+								@songInfo.SongName
+							</li>
+						}
+					</ul>
+				}
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+@code {
+	//------------------------------VARIABLES------------------------------
+
+	//----------PARAMETERS----------
+	[Parameter]
+	public EventCallback<List<SongDetails>> setSongs { get; set; }
+
+	[Parameter]
+	public string startQuizButtonVisibility { get; set; }
+
+	//--------------------LEFT DIV--------------------
+
+	//----------SEARCH BY / RADIO BUTTONS----------
+	public string artistSearchSetting { get; set; } = "searchByArtist";
+
+	//----------SLIDER VALUES----------
+	//default values - fetch 50 songs then fetch lyrics for those 50 until 10 sets have been found.
+	int numberOfSongsToFetch = 50;
+	public int numberOfSongsSelected = 10;
+
+	//----------SWITCHES----------
+	public Dictionary<string, bool> Settings = new Dictionary<string, bool>
+	{
+		{"startOnly" , false},
+		{"repeatsOnly", false},
+		{"noGenericStarts", false},
+		{"infiniteMode", false},
+		{"???", false}
+	};
+
+	//--------------------MIDDLE DIV--------------------
+
+	//----------PROMPTS----------
+	string artistSearchPromptString = "Search for an artist to begin fetching song snippets";
+	string artistSearchPromptVisibility = "visible";
+
+	//----------INPUT----------
+	private string userInputBandName = "";
+
+	//----------RESULTS----------
+	private Artist selectedArtist = new();
+	public string artistId = "";
+
+	//--------------------RIGHT DIV--------------------
+
+	//----------PROMPTS----------
+	string fetchingLyricsHeadingVisibility = "hidden";
+	string rightDivVisibility = "hidden";
+
+
+	//--------------------LISTS--------------------
+
+	List<string> songList = new();
+	List<SongDetails> songInfos = new();
+	public List<Artist> MyArtistList { get; set; } = new();
+	public List<Recording> MyRecordingList { get; set; } = new();
+
+
+
+
+
+
+
+	private async Task searchButton()
+	{
+		MyArtistList.Clear();
+		MyRecordingList.Clear();
+		if (artistSearchSetting == "searchByArtist")
+		{
+			MyArtistList = await MusicbrainzAPIClient.FetchNPossibleArtists(userInputBandName, 10);
+		}
+		if (artistSearchSetting == "searchBySongTitle")
+		{
+			MyRecordingList = await MusicbrainzAPIClient.FetchNPossibleSongTitles(userInputBandName, 20);
+		}
+		foreach (var pair in Settings)
+		{
+			Console.WriteLine($"{pair.Key}: {pair.Value}");
+		}
+	}
+
+
+
+	private CancellationTokenSource cancTokenSrc;
+	private async Task chooseButton(Object input)
+	{
+		artistSearchPromptVisibility = "hidden";
+		fetchingLyricsHeadingVisibility = "visible";
+		rightDivVisibility = "visible";
+		songInfos.Clear();
+		await setSongs.InvokeAsync(songInfos);
+
+		cancTokenSrc?.Cancel();
+
+		cancTokenSrc = new CancellationTokenSource();
+		CancellationToken cancToken = cancTokenSrc.Token;
+
+		//Chose to search by song title
+		if (input is Recording recording)
+		{
+			GeniusAPIClient.NewArtistName = recording.artistcredit[0].name;
+			artistId = await GeniusAPIClient.GetArtistId(recording);
+			Console.WriteLine($"ArtistID: {artistId}");
+		}
+
+		//Chose to search by artist
+		if (input is Artist artist)
+		{
+			GeniusAPIClient.NewArtistName = artist.Name;
+			selectedArtist.IsSelected = false;
+			selectedArtist = artist;
+			selectedArtist.IsSelected = true;
+			artistId = await GeniusAPIClient.GetArtistId(artist.Name);
+			Console.WriteLine($"ArtistID: {artistId}");
+		}
+
+		//use that id to retrieve list of X amount of songs - numberOfSongsToFetch
+		songList = await GeniusAPIClient.GetSongTitles(artistId, numberOfSongsToFetch, cancToken);
+
+		//print all songs to console for testing
+		foreach (string songTitle in songList)
+		{
+			Console.WriteLine(songTitle);
+		}
+
+		//randomise
+		songList = songList.OrderBy(_ => Guid.NewGuid()).ToList();
+		List<string> lyricSnippet = new();
+		//ID was wrong because I was using lyricSnippet.Count() - always 10. - replaced with int count below
+		int count = 0;
+		foreach (string songTitle in songList)
+		{
+			// Console.WriteLine($"{artist.Name}, {songTitle}");
+			if (artistId != "")
+			{
+				Console.WriteLine("count: " + count + " songInfos.Count: " + songInfos.Count + " numberOfSongsToFetch: " + numberOfSongsToFetch + " numberOfSongsSelected: " + numberOfSongsSelected + " songList.Count: " + songList.Count);
+				lyricSnippet = await LyricsAPIClient.FetchLyricsAsync(GeniusAPIClient.NewArtistName, songTitle, Settings, cancToken);
+				if (lyricSnippet.Count == 10)
+				{
+					SongDetails thisSongInfo = new(count, songTitle, lyricSnippet);
+					songInfos.Add(thisSongInfo);
+					StateHasChanged();
+				}
+				count++;
+				if (songInfos.Count == numberOfSongsSelected)
+				// if(LyricsAPIClient.NumberOfFetchesComplete == numberOfSongsSelected)
+				{
+					await setSongs.InvokeAsync(songInfos);
+					return;
+				}
+				
+				// if (count == numberOfSongsSelected)
+				if (count == songList.Count)
+				{
+					Console.WriteLine("Haven't found enough songs, continuing");
+					await setSongs.InvokeAsync(songInfos);
+					return;
+				}
+			}
+		}
+	}
+
+	private string styleForArtistList(bool isSelected)
+	{	
+		if (isSelected)
+		{
+			return "color:red";
+		}
+		return "color:rgba(255, 255, 255, 0.87)";
+	}
+
+	public void resetArtistListComponent()
+	{
+		userInputBandName = "";
+		artistSearchPromptVisibility = "visible";
+		resetLeftDiv();
+		resetRightDiv();
+	}
+
+	public void resetRightDiv()
+	{
+		fetchingLyricsHeadingVisibility = "hidden";
+		rightDivVisibility = "hidden";
+		startQuizButtonVisibility = "hidden";
+		songInfos.Clear();
+		MyArtistList.Clear();
+		MyRecordingList.Clear();
+		artistId = "";
+		setSongs.InvokeAsync(songInfos);
+	}
+
+	public void resetLeftDiv()
+	{
+		foreach (var pair in Settings)
+		{
+			Settings[pair.Key] = false;
+		}
+		numberOfSongsToFetch = 50;
+		numberOfSongsSelected = 10;
+	}
+
+}
+

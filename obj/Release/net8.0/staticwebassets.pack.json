@@ -1,0 +1,157 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\bin\\Release\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\obj\\Release\\net8.0\\compressed\\bqn3p47xgb.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\obj\\Release\\net8.0\\scopedcss\\bundle\\PortfolioWebAssem.styles.css",
+      "PackagePath": "staticwebassets\\PortfolioWebAssem.styles.css"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\colourhandler.js",
+      "PackagePath": "staticwebassets\\ThreejsPage\\colourhandler.js"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\main.js",
+      "PackagePath": "staticwebassets\\ThreejsPage\\main.js"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\.package-lock.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\.package-lock.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\droid\\README.txt",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\droid\\README.txt"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\droid\\droid_sans_bold.typeface.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\droid\\droid_sans_bold.typeface.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\droid\\droid_sans_mono_regular.typeface.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\droid\\droid_sans_mono_regular.typeface.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\droid\\droid_sans_regular.typeface.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\droid\\droid_sans_regular.typeface.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\droid\\droid_serif_bold.typeface.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\droid\\droid_serif_bold.typeface.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\droid\\droid_serif_regular.typeface.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\droid\\droid_serif_regular.typeface.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\gentilis_bold.typeface.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\gentilis_bold.typeface.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\gentilis_regular.typeface.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\gentilis_regular.typeface.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\helvetiker_bold.typeface.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\helvetiker_bold.typeface.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\helvetiker_regular.typeface.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\helvetiker_regular.typeface.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\optimer_bold.typeface.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\optimer_bold.typeface.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\optimer_regular.typeface.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\optimer_regular.typeface.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\examples\\fonts\\ttf\\kenpixel.ttf",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\examples\\fonts\\ttf\\kenpixel.ttf"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\node_modules\\three\\package.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\node_modules\\three\\package.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\package-lock.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\package-lock.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\ThreejsPage\\package.json",
+      "PackagePath": "staticwebassets\\ThreejsPage\\package.json"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\assets\\homepage\\JavaCover.png",
+      "PackagePath": "staticwebassets\\assets\\homepage\\JavaCover.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\assets\\homepage\\MusicQuizCover.png",
+      "PackagePath": "staticwebassets\\assets\\homepage\\MusicQuizCover.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\assets\\homepage\\PokefetchCover.png",
+      "PackagePath": "staticwebassets\\assets\\homepage\\PokefetchCover.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\assets\\homepage\\ThreejsBounceCover.png",
+      "PackagePath": "staticwebassets\\assets\\homepage\\ThreejsBounceCover.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\assets\\homepage\\ToDoListCover.png",
+      "PackagePath": "staticwebassets\\assets\\homepage\\ToDoListCover.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "D:\\Documents\\GitHub\\Portfolio\\PortfolioWebAssem\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.PortfolioWebAssem.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.PortfolioWebAssem.props",
+      "PackagePath": "build\\PortfolioWebAssem.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.PortfolioWebAssem.props",
+      "PackagePath": "buildMultiTargeting\\PortfolioWebAssem.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.PortfolioWebAssem.props",
+      "PackagePath": "buildTransitive\\PortfolioWebAssem.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

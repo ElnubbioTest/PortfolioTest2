@@ -1,0 +1,65 @@
+todo list:
+
+increase amount of songs -> 2 pages?
+baby mode - return most repeated snippet + easy mode condition
+easy mode - lyric snippets can't start with [I, and, but, ...]
+inifinite mode - all songs returned from genius api & when reaching end of list of songs, generate new snippets
+depeche mode - literally just the game but it forces you to play using depeche mode's songs
+make new lines in song lyrics appear on new lines in the lyric container
+blacklist songs - add little x on right of songs found in fetch on right div. this would then add it to a blacklist list<string> to compare against when a new list is generated on chooseButton press
+Help button
+
+
+
+
+fetchingLyricsHeading -> rightDivProgressString
+
+
+
+
+
+complete:
+change song name fetch apostrophe for backtick
+change artistname for genius lyric fetch to use the artistname found from the genius artist id fetch rather than chosen artistname from list of 10
+add score system
+add return to start page button - clears songdetaillist
+fix fatal error when at the end of songs - go to quiz over?
+fix fatal error when starting music quiz before either selecting an artist or starting too soon after selecting an artist -> perform check on stat music quiz button to see if songdetaillist is populated enough
+show score on game over page
+fix error when searching for empty artist
+
+
+complete 2:
+added prompt to search for artists
+added info for songs found
+
+
+complete 3:
+make reset button reset entered artist name + clear list of artists
+show list of songs being added to songlist so user can see something is happening
+fix issue where genius api returns a song title first rather than an artist name (see madonna by drake) - see if geniusapi fetch name matches genius api fetch result.artistname
+
+
+complete 4:
+return unique results only from song title search and artist search
+checks every song to see if it's from the right artist before adding it to the song list - see robert palmer search returning 8+ copies of addicted to love since many people have covered it
+reset button resets everything
+added sliders to select number of songs - TODO implement functionality. might remove top slider
+added 5 switches to toggle settings - TODO implement functionality for all of them, probably will remove ??? switch
+sort of aligned everything on the left div, just need to do finishing touches
+tidied and merged functions
+put the musicbrainz fetch functions in their own APIclient class
+
+complete 5:
+fixed spacing for switches on left div
+
+complete 6:
+pressing enter to submit search + quiz answers
+added new regex filters to remove instances of (Chorus) Bridge: ArtistName: etc. from lyric snippets
+centered song list on right div (removed padding on ul element)
+centered artist list in middle div (removed padding on ul element)
+make geniusapiclient static
+organise variables TODO explain what they do
+
+complete 7:
+clicking the choose button now cancels the last fetch - this stops the list of songs being flooded past the number wanted when spam clicking.

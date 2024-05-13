@@ -1,0 +1,96 @@
+﻿@page "/musicquiz"
+@inject HttpClient httpClient;
+
+@using System.Text.RegularExpressions
+@using PortfolioWebAssem.Models;
+
+<PageTitle>Music Quiz</PageTitle>
+
+<NavLink class="nav-link" href="/">
+	Home
+</NavLink>
+@* Console.WriteLine(fetchArtistId("linkin-park")); *@
+@* <button @onclick="goToStart">Go to Start</button>
+<button @onclick="goToQuiz">Go to Quiz</button> *@
+
+<button @onclick="goToStart" class="btn btn-primary">Reset</button>
+
+@if (state == eMusicState.Over)
+{
+	<MusicQuizPage_QuizOver Score="@score"/>
+}
+else if (state == eMusicState.Quiz)
+{
+	<MusicQuizPage_Quiz SongDetailsList=@SongDetailsList GoToQuizOver="goToQuizOver" />
+}
+else if (state == eMusicState.Start)
+{
+	<MusicQuizPage_MusicStart @ref="musicStartComponent" startQuizButtonVisibility=@startQuizButtonVisibility StartQuiz="goToQuiz" />
+	<ArtistList @ref="artistListComponent" setSongs="setSongs" startQuizButtonVisibility=@startQuizButtonVisibility/>
+	
+}
+
+
+
+
+@code{
+
+	ArtistList artistListComponent;
+	MusicQuizPage_MusicStart musicStartComponent;
+	private void resetArtistListComp()
+	{
+		artistListComponent.resetArtistListComponent();
+	}
+
+	eMusicState state = eMusicState.Start;
+	int score = 0;
+	public enum eMusicState
+	{
+		Start,
+		Quiz,
+		Over
+	}
+
+	private void goToStart()
+	{
+		state = eMusicState.Start;
+		//reset
+		SongDetailsList.Clear();
+		startQuizButtonVisibility = "hidden";
+		resetArtistListComp();
+
+	}
+
+	private void goToQuiz()
+	{
+		state = eMusicState.Quiz;
+	}
+
+	private async Task goToQuizOver(int finalScore)
+	{
+		score = finalScore;
+		state = eMusicState.Over;
+	}
+
+	string startQuizButtonVisibility = "hidden";
+	List<SongDetails> SongDetailsList = new();
+	private async Task setSongs(List<SongDetails> songDetailsList)
+	{
+		SongDetailsList = songDetailsList;
+		if (SongDetailsList.Count() > 1)
+		{
+			startQuizButtonVisibility = "visible";
+		}
+		else startQuizButtonVisibility = "hidden";
+
+		//Show song lyric snippets in console
+		foreach(SongDetails songInfo in songDetailsList)
+		{
+			foreach(string word in songInfo.Lyrics)
+			{
+				Console.Write(word + " ");
+			}
+			Console.WriteLine(" ");
+		}
+	}
+}

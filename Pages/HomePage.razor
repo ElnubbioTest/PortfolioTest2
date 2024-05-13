@@ -1,0 +1,59 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<div class="text-center">
+<h1>Dan's portfolio</h1>
+
+A collection of projects I've created.
+</div>
+
+<br>
+
+<style>
+.img-fluid {
+        max-width: 100%;
+        height: 200px !important;/* Set a fixed height */
+    }
+</style>
+
+<div class="text-center">
+    <div class="container">
+        <NavLink class="nav-link" href="musicquiz">
+        <h2>Music Quiz (Blazor)</h2>
+        <img src="\assets\homepage\MusicQuizCover.png" class="img-fluid" height="200px">
+        </NavLink>
+        <div class="row m-1">
+                <div class="col w-50">
+                    <NavLink class="nav-link" href="pokefetch">
+                    <h3>Pokefetch (JavaScript)</h3>
+                    <img src="\assets\homepage\PokefetchCover.png" class="img-fluid" height="200px">
+                    </NavLink>
+                </div>
+            <div class="col w-50">
+                <NavLink class="nav-link" href="threejs">
+                <h3>Three.js Bounce (JavaScript)</h3>
+                <img src="\assets\homepage\ThreejsBounceCover.png" class="img-fluid">
+                </NavLink>
+            </div>
+        </div>
+        <div class="row m-1">
+            <div class="col w-50">
+                <NavLink class="nav-link" href="todolist">
+                <h3>To Do List (Blazor)</h3>
+                <img src="\assets\homepage\ToDoListCover.png" class="img-fluid">
+                </NavLink>
+            </div>
+            <div class="col w-50">
+                <NavLink class="nav-link" href="java">
+                <h3>Workout List (Java)</h3>
+                <img src="\assets\homepage\JavaCover.png" class="img-fluid">
+                </NavLink>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p class= "text-center">
+    The source code for this portfolio project can be found <a href="https://github.com/Elnubbio/Portfolio">here</a>.
+</p>
